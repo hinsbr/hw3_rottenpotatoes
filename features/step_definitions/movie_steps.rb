@@ -1,12 +1,3 @@
-Given /I have added "(.*)" with rating "(.*)" and release date "(.*)"/ do |title, rating, release_date|
-  #  Given %Q{I am on the Create New Movie Page}
-  #  When  %Q{I fill in "Title" with "#{title}"}
-  #  And   %Q{I select "#{rating}" from "Rating"}
-  #  And   %Q{I fill in "Release Date" with "#{release_date}"}
-  #  And   %Q{I press "Save Changes"}
-  
-  Movie.create!(:title => "#{title}", :rating => "#{rating}", :release_date => "#{release_date}")
-end
 
 # Add a declarative step here for populating the DB with movies.
 Given /the following movies exist/ do |movies_table|
@@ -24,6 +15,10 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
   assert false, "Unimplmemented"
+end
+
+Then /I should see only PG and R movies/ do
+  #assert Movie.rows
 end
 
 # Make it easier to express checking or unchecking several boxes at once

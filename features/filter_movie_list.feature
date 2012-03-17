@@ -31,12 +31,22 @@ Background: movies have been added to database
 
   And  I am on the RottenPotatoes home page
   
-Scenario: restrict to movies with 'PG' or 'R' ratings
-  # enter step(s) to check the 'PG' and 'R' checkboxes
+Scenario: restrict to movies with "PG" or "R" ratings
+  # enter step(s) to check the "PG" and "R" checkboxes
+  When I check "ratings[PG]"
+  And I check "ratings[R]" 
   # enter step(s) to uncheck all other checkboxes
+  And I uncheck "ratings[G]"
+  And I uncheck "ratings[PG-13]"
   # enter step to "submit" the search form on the homepage
+  And I press "ratings_submit"
   # enter step(s) to ensure that PG and R movies are visible
+  #Then I should see only PG and R movies
+  Then I should see "Raiders of the Lost Ark"
+  Then I should see "Amelie"
   # enter step(s) to ensure that other movies are not visible
+  Then I should not see "Chicken Run"
+  Then I should not see "The Help"
 
 Scenario: no ratings selected
   # see assignment
