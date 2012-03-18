@@ -5,16 +5,6 @@ Feature: display list of movies filtered by MPAA rating
   I want to see movies matching only certain MPAA ratings
 
 Background: movies have been added to database
-  #Given I have added "Aladdin" with rating "G" and release date "25-Nov-1992"
-  #Given I have added "The Terminator" with rating "R" and release date "26-Oct-1984"
-  #Given I have added "When Harry Met Sally" with rating "R" and release date "21-Jul-1989"
-  #Given I have added "The Help" with rating "PG-13" and release date "10-Aug-2011"
-  #Given I have added "Chocolat" with rating "PG-13" and release date "5-Jan-2001"
-  #Given I have added "Amelie" with rating "R" and release date "25-Apr-2001"
-  #Given I have added "2001: A Space Odyssey" with rating "G" and release date "6-Apr-1968"
-  #Given I have added "The Incredibles" with rating "PG" and release date "5-Nov-2004"
-  #Given I have added "Raiders of the Lost Ark" with rating "PG" and release date "12-Jun-1981"
-  #Given I have added "Chicken Run" with rating "G" and release date "21-Jun-2000"
 
   Given the following movies exist:
   | title                   | rating | release_date |
