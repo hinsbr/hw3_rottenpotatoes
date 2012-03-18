@@ -17,9 +17,17 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   assert false, "Unimplmemented"
 end
 
-Then /I should see only PG and R movies/ do
-  #assert Movie.rows
+Then /I should see all of the movies/ do
+  #debugger
+  #tbl = "table#movies" #.rows.should == Movies.count
+  all("table#movies tr").count == Movie.count
 end
+
+Then /I should see none of the movies/ do
+  all("table#movies tr").count == 0
+end
+
+##### page.should have_selector('table tr', :count => 3)
 
 # Make it easier to express checking or unchecking several boxes at once
 #  "When I uncheck the following ratings: PG, G, R"
@@ -29,4 +37,14 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   # HINT: use String#split to split up the rating_list, then
   #   iterate over the ratings and reuse the "When I check..." or
   #   "When I uncheck..." steps in lines 89-95 of web_steps.rb
+  rating_list.split(",").each do |rating|
+    #if uncheck
+      #debugger
+      if (uncheck == nil)
+        step %Q{I check "ratings[#{rating}]"}
+      else
+        step %Q{I uncheck "ratings[#{rating}]"}
+      end
+  end
+  
 end
